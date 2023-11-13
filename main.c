@@ -16,7 +16,8 @@ int main() {
     printf("2. Deletar Tarefa\n");
     printf("3. Listar Tarefas\n");
     printf("4. Alterar Tarefa\n");
-    printf("5. Sair\n");
+    printf("5. Filtrar Tarefa por Prioridade\n");
+    printf("6. Sair\n");
     printf("Escolha uma opção: ");
 
     char entrada[100];
@@ -56,6 +57,18 @@ int main() {
         }
         break;
       case 5:
+      if (lista.qtd > 0) {
+        int prioridade;
+        printf("Digite a prioridade a ser filtrada: ");
+        scanf("%d", &prioridade);
+        getchar(); // Limpa o caractere de nova linha pendente
+        filtrar_prioridade(lista, prioridade);
+        salvarLista(lista, "tarefas.bin");
+      } else {
+        printf("A lista de tarefas está vazia. Nada para listar.\n");
+      }
+      break;
+      case 6:
       sair = 1;
       break;
       default:
