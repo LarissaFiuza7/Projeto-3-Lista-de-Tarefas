@@ -154,6 +154,7 @@ void alterarTarefa(ListaDeTarefas *lt, int indice) {
     printf("Índice inválido.\n");
   }
 }
+
 void filtrar_prioridade(ListaDeTarefas lt, int prioridade){
   if (prioridade < 0 || prioridade > 11) {
     printf("Prioridade invalida.\n");
@@ -178,5 +179,15 @@ void filtrar_estado(ListaDeTarefas lt, char *status) {
     }
   }
 }
-
-
+void filtrar_categoria(ListaDeTarefas lt, char *topicos){
+  if (lt.qtd == 0) {
+    printf("A lista de tarefas está vazia.\n");
+    return;
+  }
+  for (int i = 0; i < lt.qtd; i++) {
+    if (strcmp(topicos, lt.tarefas[i].categoria) == 0) {
+      printf("Tarefa %d - Prioridade %d: %s - %s - tarefa %s\n", i, lt.tarefas[i].prioridade,
+        lt.tarefas[i].categoria, lt.tarefas[i].descricao, lt.tarefas[i].estado);
+    }
+  }
+}

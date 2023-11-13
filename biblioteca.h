@@ -24,5 +24,7 @@ void carregarLista(ListaDeTarefas *lt, const char *tarefas);
 void alterar_Tarefa(ListaDeTarefas*lt, int indice);
 void filtrar_prioridade(ListaDeTarefas lt, int prioridade);
 void filtrar_estado(ListaDeTarefas lt, char *status);
+void filtrar_categoria(ListaDeTarefas lt, char *topicos);
+
 
 #endif // PROJET_1_BIBLIOTECA_H

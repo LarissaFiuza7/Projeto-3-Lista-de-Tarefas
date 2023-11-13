@@ -18,7 +18,8 @@ int main() {
     printf("4. Alterar Tarefa\n");
     printf("5. Filtrar Tarefa por Prioridade\n");
     printf("6. Filtrar Tarefa pelo estado\n");
-    printf("7. Sair\n");
+    printf("7. Filtrar Tarefa pela categoria\n");
+    printf("8. Sair\n");
     printf("Escolha uma opção: ");
 
     char entrada[100];
@@ -58,30 +59,42 @@ int main() {
         }
         break;
       case 5:
-      if (lista.qtd > 0) {
-        int prioridade;
-        printf("Digite a prioridade a ser filtrada: ");
-        scanf("%d", &prioridade);
-        getchar(); // Limpa o caractere de nova linha pendente
-        filtrar_prioridade(lista, prioridade);
-        salvarLista(lista, "tarefas.bin");
-      } else {
-        printf("A lista de tarefas está vazia. Nada para listar.\n");
-      }
-      break;
+        if (lista.qtd > 0) {
+          int prioridade;
+          printf("Digite a prioridade a ser filtrada: ");
+          scanf("%d", &prioridade);
+          getchar(); // Limpa o caractere de nova linha pendente
+          filtrar_prioridade(lista, prioridade);
+          salvarLista(lista, "tarefas.bin");
+        } else {
+          printf("A lista de tarefas está vazia. Nada para listar.\n");
+        }
+        break;
       case 6:
+        if (lista.qtd > 0) {
+          char status[20];
+          printf("Digite o estado a ser filtrado: ");
+          scanf("%[^\n]", status);
+          getchar(); // Limpa o caractere de nova linha pendente
+          filtrar_estado(lista, status);
+          salvarLista(lista, "tarefas.bin");
+        } else {
+          printf("A lista de tarefas está vazia. Nada para listar.\n");
+        }
+        break;
+      case 7:
       if (lista.qtd > 0) {
-        char status[20];
-        printf("Digite o estado a ser filtrado: ");
-        scanf("%[^\n]", status);
+        char topicos[20];
+        printf("Digite a categoria a ser filtrada: ");
+        scanf("%[^\n]", topicos);
         getchar(); // Limpa o caractere de nova linha pendente
-        filtrar_estado(lista, status);
+        filtrar_categoria(lista, topicos);
         salvarLista(lista, "tarefas.bin");
       } else {
         printf("A lista de tarefas está vazia. Nada para listar.\n");
       }
       break;
-      case 7:
+      case 8:
       sair = 1;
       break;
       default:
