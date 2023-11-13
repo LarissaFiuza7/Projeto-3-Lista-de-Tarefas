@@ -1,4 +1,4 @@
-# Lista de Tarefas Projetio_3
+# Lista de Tarefas Projeto_3
 Projeto da disciplina CC2632 - DESENVOLVIMENTO DE ALGORITMOS do Centro Universitário FEI.
 
 # Descrição do Projeto
