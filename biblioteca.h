@@ -28,6 +28,7 @@ void filtrar_categoria(ListaDeTarefas lt, char *topicos);
 void filtrar_prioridade_categoria(ListaDeTarefas lt, char *topicos, int prioridade);
 void exportar_prioridade(ListaDeTarefas lt, int prioridade, const char *priorizando);
 void exportar_categoria(ListaDeTarefas lt, char *topicos, const char *categorizando);
+void exportar_prioridade_categoria(ListaDeTarefas lt, int prioridade, char *topicos, const char *classificando);
 
 
 #endif // PROJET_1_BIBLIOTECA_H
