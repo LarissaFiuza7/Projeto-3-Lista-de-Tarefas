@@ -166,5 +166,17 @@ void filtrar_prioridade(ListaDeTarefas lt, int prioridade){
     }
   }
 }
+void filtrar_estado(ListaDeTarefas lt, char *status) {
+  if (lt.qtd == 0) {
+    printf("A lista de tarefas está vazia.\n");
+    return;
+  }
+  for (int i = 0; i < lt.qtd; i++) {
+    if (strcmp(status, lt.tarefas[i].estado) == 0) {
+      printf("Tarefa %d - Prioridade %d: %s - %s - tarefa %s\n", i, lt.tarefas[i].prioridade,
+        lt.tarefas[i].categoria, lt.tarefas[i].descricao, lt.tarefas[i].estado);
+    }
+  }
+}
 
 
