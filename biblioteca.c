@@ -203,3 +203,19 @@ void filtrar_prioridade_categoria(ListaDeTarefas lt, char *topicos, int priorida
     }
   }
 }
+void exportar_prioridade(ListaDeTarefas lt, int prioridade, const char *priorizando){
+    FILE *arquivo = fopen(priorizando, "w");
+
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo para escrita.\n");
+        return;
+    }
+
+    for (int i = 0; i < lt.qtd; i++) {
+      if(prioridade == lt.tarefas[i].prioridade){
+       fprintf(arquivo, "Tarefa %d - Prioridade %d: %s - %s - tarefa %s\n", i, lt.tarefas[i].prioridade,
+         lt.tarefas[i].categoria, lt.tarefas[i].descricao, lt.tarefas[i].estado);
+    }
+    }
+    fclose(arquivo);
+}
