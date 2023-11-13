@@ -154,6 +154,17 @@ void alterarTarefa(ListaDeTarefas *lt, int indice) {
     printf("Índice inválido.\n");
   }
 }
-
+void filtrar_prioridade(ListaDeTarefas lt, int prioridade){
+  if (prioridade < 0 || prioridade > 11) {
+    printf("Prioridade invalida.\n");
+    return;
+  }
+  for (int i = 0; i < lt.qtd; i++) {
+    if( prioridade == lt.tarefas[i].prioridade){
+      printf("Tarefa %d - Prioridade %d: %s - %s - tarefa %s\n", i, lt.tarefas[i].prioridade,
+           lt.tarefas[i].categoria, lt.tarefas[i].descricao, lt.tarefas[i].estado);
+    }
+  }
+}
 
 
