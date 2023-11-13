@@ -219,3 +219,19 @@ void exportar_prioridade(ListaDeTarefas lt, int prioridade, const char *prioriza
     }
     fclose(arquivo);
 }
+void exportar_categoria(ListaDeTarefas lt, char *topicos, const char *categorizando){
+    FILE *arquivo = fopen(categorizando, "w");
+
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo para escrita.\n");
+        return;
+    }
+
+    for (int i = 0; i < lt.qtd; i++) {
+      if (strcmp(topicos, lt.tarefas[i].categoria) == 0){
+       fprintf(arquivo, "Tarefa %d - Prioridade %d: %s - %s - tarefa %s\n", i, lt.tarefas[i].prioridade,
+         lt.tarefas[i].categoria, lt.tarefas[i].descricao, lt.tarefas[i].estado);
+    }
+    }
+    fclose(arquivo);
+}
