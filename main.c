@@ -20,7 +20,8 @@ int main() {
     printf("6. Filtrar Tarefa pelo estado\n");
     printf("7. Filtrar Tarefa pela categoria\n");
     printf("8. Filtrar Tarefa pela prioridade e pela categoria\n");
-    printf("9. Sair\n");
+    printf("9. Exportar tarefas por prioridade\n");
+    printf("10. Sair\n");
     printf("Escolha uma opção: ");
 
     char entrada[100];
@@ -112,6 +113,18 @@ int main() {
       }
       break;
       case 9:
+      if (lista.qtd > 0) {
+        int prioridade;
+        printf("Digite a prioridade a ser filtrada: ");
+        scanf("%d", &prioridade);
+        getchar(); // Limpa o caractere de nova linha pendente
+        exportar_prioridade(lista, prioridade, "priorizando.txt");
+        salvarLista(lista, "tarefas.bin");
+      } else {
+        printf("A lista de tarefas está vazia. Nada para listar.\n");
+      }
+      break;
+      case 10:
       sair = 1;
       break;
       default:
