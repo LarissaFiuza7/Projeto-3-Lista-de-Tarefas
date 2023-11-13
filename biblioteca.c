@@ -161,7 +161,7 @@ void filtrar_prioridade(ListaDeTarefas lt, int prioridade){
     return;
   }
   for (int i = 0; i < lt.qtd; i++) {
-    if( prioridade == lt.tarefas[i].prioridade){
+    if(prioridade == lt.tarefas[i].prioridade){
       printf("Tarefa %d - Prioridade %d: %s - %s - tarefa %s\n", i, lt.tarefas[i].prioridade,
            lt.tarefas[i].categoria, lt.tarefas[i].descricao, lt.tarefas[i].estado);
     }
@@ -186,6 +186,18 @@ void filtrar_categoria(ListaDeTarefas lt, char *topicos){
   }
   for (int i = 0; i < lt.qtd; i++) {
     if (strcmp(topicos, lt.tarefas[i].categoria) == 0) {
+      printf("Tarefa %d - Prioridade %d: %s - %s - tarefa %s\n", i, lt.tarefas[i].prioridade,
+        lt.tarefas[i].categoria, lt.tarefas[i].descricao, lt.tarefas[i].estado);
+    }
+  }
+}
+void filtrar_prioridade_categoria(ListaDeTarefas lt, char *topicos, int prioridade){
+  if (lt.qtd == 0) {
+    printf("A lista de tarefas está vazia.\n");
+    return;
+  }
+  for (int i = 0; i < lt.qtd; i++) {
+    if ((strcmp(topicos, lt.tarefas[i].categoria) == 0) && prioridade == lt.tarefas[i].prioridade) {
       printf("Tarefa %d - Prioridade %d: %s - %s - tarefa %s\n", i, lt.tarefas[i].prioridade,
         lt.tarefas[i].categoria, lt.tarefas[i].descricao, lt.tarefas[i].estado);
     }
